@@ -1,5 +1,3 @@
-# fedexsmartpost
-
 # FedEx Ground Economy / SmartPost for Zen Cart Mod
 
 (Under development, for personal purposes only)
