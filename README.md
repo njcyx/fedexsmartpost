@@ -9,7 +9,7 @@ https://www.numinix.com/zen-cart-plugins-modules-shipping-c-179_250_373_163/fede
 The following four numbers are needed to use this plug-in: 
 FedEx Key, FedEx Password, FedEx Account Number, FedEx Meter Number
 
-I copied the current FedEx Key and FedEx password from the latest fedexwebservices (also from Numinix). Then I put my Acct# and Meter# there, and it worked. Please also note, FedEx doesn't provide new product keys any more. This mod is only for old users. 
+I copied the current FedEx Key and FedEx password from the latest fedexwebservices. Then I put my Acct# and Meter# there, and it worked. Please also note, FedEx doesn't provide new product keys any more. This mod is only for old users. 
 
 If unable to fix the warning, add "error_reporting(0);" to the top line.
 
