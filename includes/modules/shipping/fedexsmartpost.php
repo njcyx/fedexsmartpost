@@ -1,5 +1,8 @@
 <?php
 
+if (IS_ADMIN_FLAG)
+error_reporting(0);
+
 class fedexsmartpost {
 	var $code, $title, $description, $icon, $enabled, $tax_class;
 	
