@@ -4,7 +4,27 @@
 //error_reporting(0);
 
 class fedexsmartpost {
-	var $code, $title, $description, $icon, $enabled, $tax_class;
+public
+    $code, 
+    $title,
+    $description,
+    $icon,
+    $enabled,
+    $tax_class,
+    $sort_order,
+    $quotes;
+
+protected
+    $_check,
+    $version,
+    $fedex_key,
+    $fedex_pwd,
+    $fedex_act_num,
+    $fedex_meter_num,
+    $country,
+    $fedex_shipping_num_boxes,
+    $fedex_shipping_weight,
+    $insurance;
 	
 	//Class Constructor
 	//function fedexsmartpost() {
@@ -251,8 +271,10 @@ class fedexsmartpost {
 
 		      if(MODULE_SHIPPING_FEDEX_SMARTPOST_DEBUG == 'true' ){
 		        $log_time_stamp = microtime();
-		        error_log('['. strftime("%Y-%m-%d %H:%M:%S") .'] '. var_export($request, true), 3, DIR_FS_LOGS . '/fedexsmartpost-requests-' . $log_time_stamp . '.log');
-		        error_log('['. strftime("%Y-%m-%d %H:%M:%S") .'] '. var_export($response, true), 3, DIR_FS_LOGS . '/fedexsmartpost-responses-' . $log_time_stamp . '.log');
+		      //  error_log('['. strftime("%Y-%m-%d %H:%M:%S") .'] '. var_export($request, true), 3, DIR_FS_LOGS . '/fedexsmartpost-requests-' . $log_time_stamp . '.log');
+		      //  error_log('['. strftime("%Y-%m-%d %H:%M:%S") .'] '. var_export($response, true), 3, DIR_FS_LOGS . '/fedexsmartpost-responses-' . $log_time_stamp . '.log');
+			error_log('['. date('Ymd-His') .'] '. var_export($request, true), 3, DIR_FS_LOGS . '/fedexsmartpost-requests-' . $log_time_stamp . '.log');
+		       	error_log('['. date('Ymd-His') .'] '. var_export($response, true), 3, DIR_FS_LOGS . '/fedexsmartpost-responses-' . $log_time_stamp . '.log');
 		      }
 
 			$showAccountRates = true;
