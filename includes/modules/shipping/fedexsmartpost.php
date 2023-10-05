@@ -14,7 +14,10 @@ class fedexsmartpost {
 		$this->code        = "fedexsmartpost";
 		$this->title       = MODULE_SHIPPING_FEDEX_SMARTPOST_TEXT_TITLE;
 		$this->description = MODULE_SHIPPING_FEDEX_SMARTPOST_TEXT_DESCRIPTION;
-		$this->sort_order  = MODULE_SHIPPING_FEDEX_SMARTPOST_SORT_ORDER;
+		$this->sort_order = (defined('MODULE_SHIPPING_FEDEX_SMARTPOST_SORT_ORDER')) ? (int)MODULE_SHIPPING_FEDEX_SMARTPOST_SORT_ORDER: null; //special thanks to @lat9 for warning fixes!
+       	 	if ($this->sort_order === null) {
+            		return false;
+        	}
 	//	$this->icon        = DIR_WS_IMAGES . 'fedex-images/SMARTPOST.gif';
 		$this->tax_class   = MODULE_SHIPPING_FEDEX_SMARTPOST_TAX_CLASS;
 		if (zen_get_shipping_enabled($this->code)) {
