@@ -78,13 +78,15 @@ protected
 	function quote($method = '') {
 		/* FedEx integration starts */
 		global $db, $shipping_weight, $shipping_num_boxes, $cart, $order;
-		
-		
+				
 		// shipping boxes manager
-  //     if (MODULE_SHIPPING_BOXES_MANAGER_STATUS == 'true') {
-     //   if (defined('MODULE_SHIPPING_BOXES_MANAGER_STATUS') && MODULE_SHIPPING_BOXES_MANAGER_STATUS == 'true') {
-   //       global $packed_boxes;    
-   //     }
+		if(!defined('MODULE_SHIPPING_BOXES_MANAGER_STATUS')){
+        		define('MODULE_SHIPPING_BOXES_MANAGER_STATUS', 'false');
+    		}
+    		if (MODULE_SHIPPING_BOXES_MANAGER_STATUS == 'true') {
+          		global $packed_boxes;    
+    		}
+		
 		// Disable the plug-in for non-US quote. 
 		if ($order->delivery['country']['iso_code_2'] != "US") {
      		   	$this->quotes = [];
@@ -207,8 +209,7 @@ protected
 		$fedex_shipping_weight                                  = $shipping_weight;
 		
         // shipping boxes manager
-        //if (MODULE_SHIPPING_BOXES_MANAGER_STATUS == 'true' && is_array($packed_boxes) && sizeof($packed_boxes) > 0) {
-		 if (is_array($packed_boxes) && sizeof($packed_boxes) > 0) {
+        if (MODULE_SHIPPING_BOXES_MANAGER_STATUS == 'true' && is_array($packed_boxes) && sizeof($packed_boxes) > 0) {		 
           $this->fedex_shipping_num_boxes = sizeof($packed_boxes);
           $this->fedex_shipping_weight = round(($this->fedex_shipping_weight / $shipping_num_boxes), 2); // use our number of packages rather than Zen Cart's calculation, package weight will still have to be an average since we don't know which products are in the box.
     
