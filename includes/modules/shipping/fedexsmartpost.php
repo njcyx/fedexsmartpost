@@ -85,6 +85,11 @@ protected
      //   if (defined('MODULE_SHIPPING_BOXES_MANAGER_STATUS') && MODULE_SHIPPING_BOXES_MANAGER_STATUS == 'true') {
    //       global $packed_boxes;    
    //     }
+		// Disable the plug-in for non-US quote. 
+		if ($order->delivery['country']['iso_code_2'] != "US") {
+     		   	$this->quotes = [];
+        		return $this->quotes;
+    		}
 		
 		require_once(DIR_WS_INCLUDES . 'library/fedex-common.php5');
 		//$path_to_wsdl = DIR_WS_MODULES . "shipping/fedexsmartpost/wsdl/RateService_v10.wsdl";
