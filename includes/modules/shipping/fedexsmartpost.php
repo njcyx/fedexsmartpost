@@ -267,6 +267,8 @@ protected
     echo '</pre>';
     echo ' -->';
 */
+		try {
+			
 		$response = $client->getRates($request);
 
 		if ($response->HighestSeverity != 'FAILURE' && $response->HighestSeverity != 'ERROR') {
@@ -335,6 +337,12 @@ protected
 		}
 		if (zen_not_null($this->icon))
 			$this->quotes['icon'] = zen_image($this->icon, $this->title, '', '', 'style="vertical-align:middle;"');
+
+		} catch (Exception $e) {
+      			$this->quotes = array('module' => $this->title,
+                            'error'  => 'Sorry, the FedEx.com server is currently not responding, please try again later.');
+    		}
+		
 		return $this->quotes;
 	}
 	
