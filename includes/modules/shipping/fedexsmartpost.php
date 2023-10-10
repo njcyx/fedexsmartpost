@@ -298,8 +298,7 @@ protected
 				}
 			}
 			if ($showAccountRates) {
-				//$cost = $response->RateReplyDetails->RatedShipmentDetails[0]->ShipmentRateDetail->TotalNetCharge->Amount;
-				$cost = reset($response->RateReplyDetails->RatedShipmentDetails)->ShipmentRateDetail->TotalNetCharge->Amount;
+				$cost = $response->RateReplyDetails->RatedShipmentDetails[0]->ShipmentRateDetail->TotalNetCharge->Amount;
 
 				$cost = (float) round(preg_replace('/[^0-9.]/', '', $cost), 2);
 			}
