@@ -1,6 +1,6 @@
 # FedEx Ground Economy / SmartPost for Zen Cart Mod
 
-(Under development, for personal purposes only)
+Updated 10/25/2023. Following code is added into regular FedEx shipping module.
 
 This module is based on the Numinix FedEx Smartpost Shipping Module, v1.3.1 with some modifications/updates to support newer Zen Cart version. Tested in ZC 1.5.7d with PHP 7.4
 
@@ -22,3 +22,4 @@ Changelog:
 5. Correct multiple PHP warnings when the module isn't installed (Special thanks to @lat9)
 6. Pre-define all class variables (aka properties) to prevent PHP 8.2 deprecation logs (Special thanks to @lat9)
 7. PHP strftime deprecated as of PHP 8.1 (Special thanks to @lat9)
+8. Bug fixes. When weight over 70lb, shipping quote is still displayed. 
