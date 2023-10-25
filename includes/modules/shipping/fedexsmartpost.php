@@ -298,7 +298,13 @@ protected
 				}
 			}
 			if ($showAccountRates) {
-				$cost = $response->RateReplyDetails->RatedShipmentDetails[0]->ShipmentRateDetail->TotalNetCharge->Amount;
+			//	$cost = $response->RateReplyDetails->RatedShipmentDetails[0]->ShipmentRateDetail->TotalNetCharge->Amount;
+
+			//PHP Fatal error: Uncaught Error: Cannot use object of type stdClass as array. Fix Trial #1
+          		if (is_object($response->RateReplyDetails->RatedShipmentDetails)) 
+             			$cost = $response->RateReplyDetails->RatedShipmentDetails->ShipmentRateDetail->TotalNetCharge->Amount;
+         		else 
+              			$cost = reset($response->RateReplyDetails->RatedShipmentDetails)->ShipmentRateDetail->TotalNetCharge->Amount;
 
 				$cost = (float) round(preg_replace('/[^0-9.]/', '', $cost), 2);
 			}
