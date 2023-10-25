@@ -242,7 +242,7 @@ protected
         } else {
     		if ($fedex_shipping_weight < 1)
     			$fedex_shipping_weight = '1.00'; // minimum shipping weight is 1.00lb
-    		if ($fedex_shipping_weight > 70) return false; // maximum weight is 70lb, make sure to set a maximum package weight of less than this maximum 
+    		if ($_SESSION['cart']->show_weight() > 70) return false; // maximum weight is 70lb, make sure to set a maximum package weight of less than this maximum. $fedex_shipping_weight doesn't work at 70lb.
     		
     		for ($i = 1; $i <= $shipping_num_boxes; $i++) {
     			$request['RequestedShipment']['RequestedPackageLineItems'][] = array(
