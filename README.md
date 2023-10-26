@@ -1,4 +1,4 @@
-EOL update:
+WSDL EOL schedule:
 
 https://www.fedex.com/en-us/developer/web-services.html
 
